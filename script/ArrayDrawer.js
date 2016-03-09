@@ -12,7 +12,7 @@ var ArrayDrawer = (function() {
       return (Math.random() * 3  + 2);
     },
     renderElement: function(item, idx) {
-      var top = 'top:' + (ELEMENT_SIZE * idx ) + 'px',
+      var top = 'top:' + (ELEMENT_SIZE * idx) + 'px',
           left = 'left:' + this.randomLeft() + 'px',
           duration = 'animation-duration:' + this.randomDuration() + 's';
 
@@ -41,13 +41,15 @@ var ArrayDrawer = (function() {
     makeElementInactive: function(idx) {
       this.elements[idx].classList.remove(ELEMENT_ACTIVE);
     },
-    swapElements: function(state, i, j, callback) {
+    swapElements: function(state, callback) {
       var self = this,
+          i = state.j - 1,
+          j = state.j,
           elementI = this.elements[i],
           elementJ = this.elements[j],
           step = 0;
 
-      var innerSort = function innerSort() {
+      function innerSort() {
         var nextCall;
 
         switch(step) {
@@ -62,7 +64,7 @@ var ArrayDrawer = (function() {
             elementI.style.top = elementJ.offsetTop + 'px';
             break;
           case 2:
-            elementJ.style.left = utils.randomLeft()+ 'px';
+            elementJ.style.left = utils.randomLeft() + 'px';
             elementI.style.left = utils.randomLeft() + 'px';
             break;
           case 3:

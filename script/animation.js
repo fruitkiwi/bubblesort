@@ -5,8 +5,8 @@
   ArrayDrawer.init(container, array);
   ArraySorter.init(array);
 
-  document.getElementById('startAnimation').addEventListener('click', function(e) {
-        ArraySorter.sort();
-        e.target.classList.add('hidden');
-      });
+  document.getElementById('startAnimation').addEventListener('click', function() {
+    ArraySorter.sort();
+    this.classList.add('hidden');
+  });
 })();

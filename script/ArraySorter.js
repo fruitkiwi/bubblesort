@@ -10,11 +10,11 @@ var ArraySorter = {
   sort: function() {
     var state = this.state;
 
-    var outerSort = function outerSort() {
+    function outerSort() {
       if (state.i < state.length) {
         if (state.j > state.i) {
           if (state.array[state.j - 1] > state.array[state.j]) {
-            ArrayDrawer.swapElements(state, state.j - 1, state.j, outerSort);
+            ArrayDrawer.swapElements(state, outerSort);
           }
           else {
             state.j--;
